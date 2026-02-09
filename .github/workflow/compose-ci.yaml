@@ -1,0 +1,17 @@
+name: Run Docker Compose Locally
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-docker:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Docker Compose
+        run: |
+          docker compose down --remove-orphans
+          docker compose up -d
