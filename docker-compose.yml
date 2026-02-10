@@ -7,7 +7,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      PYTHONUNBUFFERED: "1"
+      PYTHONUNBUFFERED: 1
     volumes:
       # Optional: mount source code for development
       - ./app:/app/app
