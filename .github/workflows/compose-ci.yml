@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Docker Compose
+        shell: powershell
         run: |
+          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
           docker compose down --remove-orphans
           docker compose up -d
