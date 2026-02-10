@@ -15,5 +15,9 @@ jobs:
         shell: powershell
         run: |
           Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-          docker compose down --remove-orphans
-          docker compose up -d
+          Set-Location -Path $env:GITHUB_WORKSPACE
+          Write-Host "PWD: $PWD"
+          Write-Host "docker-compose.yml contents:"
+          Get-Content -Path docker-compose.yml
+          docker compose -f docker-compose.yml down --remove-orphans
+          docker compose -f docker-compose.yml up -d
